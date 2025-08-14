@@ -1,1 +1,48 @@
-{}
+{
+	"React component function (no-style)": {
+		"prefix": "rfn",
+		"body": [
+			"const ${1:Component} = () => {",
+			"  return (<div>${2}</div>);",
+			"}",
+			"export default ${1:Component};"
+		],
+		"description": "React functional component (JS)"
+	},
+	"React component function (styled)": {
+		"prefix": "sfn",
+		"body": [
+			"import styles from './${1:Component}.module.scss';",
+			"const ${1:Component} = () => {",
+			"  return (<div className={styles['${1:Component}']}>${2}</div>);",
+			"}",
+			"export default ${1:Component};"
+		],
+		"description": "React functional component (JS)"
+	},
+	"useState": {
+		"prefix": "us",
+		"body": ["const [${1:state}, set${2:State}] = useState(${3:null});$0"],
+		"description": "useState hook"
+	},
+	"useEffect": {
+		"prefix": "ue",
+		"body": ["useEffect(() => {", "  ${1}", "  return () => { ${2} };", "}, [${3}]);"],
+		"description": "useEffect hook"
+	},
+	"Custom Hook (JS)": {
+		"prefix": "hook",
+		"body": [
+			"import { useState, useEffect } from 'react';",
+			"",
+			"export function use${1:Thing}(${2:params}) {",
+			"  const [state, setState] = useState(${3:null});",
+			"  useEffect(() => {",
+			"    ${4}",
+			"  }, [${5}]);",
+			"  return state;",
+			"}"
+		],
+		"description": "Custom hook skeleton"
+	}
+}
