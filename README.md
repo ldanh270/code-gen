@@ -1,0 +1,1 @@
+# js-snippet-vscode-extension
