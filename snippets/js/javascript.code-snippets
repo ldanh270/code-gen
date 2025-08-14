@@ -1,1 +1,42 @@
-{}
+{
+	"Console log": {
+		"prefix": "csl",
+		"body": ["console.log('$1:', $1);$0"],
+		"description": "console.log with label"
+	},
+	"Console time": {
+		"prefix": "ctime",
+		"body": ["console.time('$1');", "$2", "console.timeEnd('$1');$0"],
+		"description": "console.time/timeEnd"
+	},
+	"Function (Arrow function)": {
+		"prefix": "fn",
+		"body": ["const ${1:name} = (${2:args}) => {", "  $0", "};"],
+		"description": "Arrow function"
+	},
+	"Async function (Arrow function)": {
+		"prefix": "afn",
+		"body": [
+			"const ${1:name} = async (${2:args}) => {",
+			"  try {",
+			"    $0",
+			"  } catch (err) {",
+			"    console.error(err);",
+			"  }",
+			"};"
+		],
+		"description": "Async arrow with try/catch"
+	},
+	"Fetch basic": {
+		"prefix": "fetch",
+		"body": [
+			"fetch('${1:/api}')",
+			"  .then(r => r.json())",
+			"  .then(data => {",
+			"    console.log(data);",
+			"  })",
+			"  .catch(err => console.error(err));"
+		],
+		"description": "Basic fetch"
+	}
+}
