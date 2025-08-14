@@ -1,20 +1,48 @@
 {
-  "name": "faster-javascript",
-  "displayName": "faster-javascript",
-  "description": "a javascript vscode snippet by ldanh270",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.103.0"
-  },
-  "categories": [
-    "Snippets"
-  ],
-  "contributes": {
-    "snippets": [
-      {
-        "language": "javascript",
-        "path": "./snippets/snippets.code-snippets"
-      }
-    ]
-  }
+	"name": "faster-javascript",
+	"displayName": "faster-javascript",
+	"description": "a javascript vscode snippet by ldanh270",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.103.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "snippets/js/javascript.code-snippets"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "snippets/js/javascript.code-snippets"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "snippets/js/javascript-react.code-snippets"
+			},
+			{
+				"language": "typescript",
+				"path": "snippets/ts/typescript.code-snippets"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "snippets/ts/typescript.code-snippets"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "snippets/ts/typescript-react.code-snippets"
+			},
+			{
+				"language": "cpp",
+				"path": "snippets/cp/cpp.code-snippets"
+			},
+			{
+				"language": "c",
+				"path": "snippets/cp/c.code-snippets"
+			}
+		]
+	}
 }
