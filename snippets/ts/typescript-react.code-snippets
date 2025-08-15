@@ -1,1 +1,49 @@
-{}
+{
+	"React component function (no-style)": {
+		"prefix": "rfn",
+		"body": [
+			"const ${1:Component} = (${2:arg}: ${3:type}): ${4:Type} => {",
+			"  return (<div>${5}</div>);",
+			"}",
+			"export default ${1:Component};"
+		],
+		"description": "React functional component (TS)"
+	},
+	"React component function (styled)": {
+		"prefix": "sfn",
+		"body": [
+			"import styles from './${1:Component}.module.scss';",
+			"const ${1:Component} = (${2:arg}: ${3:type}): ${4:Type} => {",
+			"  return (<div className={styles['${1:Component}']}>${5}</div>);",
+			"}",
+			"export default ${1:Component};"
+		],
+		"description": "React functional component (TS)"
+	},
+
+	"useState": {
+		"prefix": "us",
+		"body": ["const [${1:state}, set${2:State}] = useState<${3:type}>(${4:init});$0"],
+		"description": "useState with type"
+	},
+	"useEffect": {
+		"prefix": "ue",
+		"body": ["useEffect(() => {", "  ${1}", "  return () => { ${2} };", "}, [${3}]);"],
+		"description": "useEffect hook"
+	},
+	"Custom Hook (TS)": {
+		"prefix": "hook",
+		"body": [
+			"import { useState, useEffect } from 'react';",
+			"",
+			"export function use${1:Thing}<T = ${2:unknown}>(${3:params}): ${4:T} {",
+			"  const [state, setState] = useState<${4:T}>(${5:undefined as unknown as T});",
+			"  useEffect(() => {",
+			"    ${6}",
+			"  }, [${7}]);",
+			"  return state;",
+			"}"
+		],
+		"description": "Typed custom hook"
+	}
+}

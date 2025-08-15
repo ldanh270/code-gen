@@ -1,0 +1,42 @@
+{
+	"Console log": {
+		"prefix": "csl",
+		"body": ["console.log('$1:', $1);$0"],
+		"description": "console.log with label"
+	},
+	"Console time": {
+		"prefix": "ctime",
+		"body": ["console.time('$1');", "$2", "console.timeEnd('$1');$0"],
+		"description": "console.time/timeEnd"
+	},
+	"Function (Arrow function)": {
+		"prefix": "fn",
+		"body": ["const ${1:name}: ${2:void} = (${3:arg}: ${4:type}) => {", "  $0", "}"],
+		"description": "Arrow function"
+	},
+	"Async function (Arrow function)": {
+		"prefix": "afn",
+		"body": [
+			"const ${1:name}: ${2:type} = async (${3:args}: ${4:type}) => {",
+			"  try {",
+			"    $0",
+			"  } catch (err) {",
+			"    console.error(err);",
+			"  }",
+			"};"
+		],
+		"description": "Async arrow with try/catch"
+	},
+	"Fetch": {
+		"prefix": "tfetch",
+		"body": [
+			"type ${1:User} = { ${2:id}: number; ${3:name}: string };",
+			"async function ${4:getData}(): Promise<${1:User}[]> {",
+			"  const res = await fetch('${5:/api}');",
+			"  if (!res.ok) throw new Error('Network');",
+			"  return res.json();",
+			"}"
+		],
+		"description": "Typed fetch"
+	}
+}
