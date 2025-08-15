@@ -1,1 +1,45 @@
-{}
+{
+	"CP Template (OJ + files + tcase)": {
+		"prefix": "init",
+		"description": "C++ competitive template with ONLINE_JUDGE, fast IO, multi testcases",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"",
+			"using namespace std;",
+			"",
+			"#define ll long long",
+			"#define ld long double",
+			"#define ull unsigned long long",
+			"#define uld unsigned long double",
+			"#define str string",
+			"",
+			"const ll mod = 1e9 + 7;",
+			"const ll oo = 1e18;",
+			"const ll N = 1e5;",
+			"const ll AI = 1e6;",
+			"",
+			"void solve() {",
+			"  $0",
+			"}",
+			"",
+			"int main() {",
+			"#ifndef ONLINE_JUDGE",
+			"  freopen(\"${1:A}.inp\", \"r\", stdin);",
+			"  freopen(\"${1:A}.out\", \"w\", stdout);",
+			"#endif",
+			"  ios_base::sync_with_stdio(false);",
+			"  cin.tie(nullptr);",
+			"  cout.tie(nullptr);",
+			"",
+			"  ll tcase = ${2:1};",
+			"  cin >> tcase;",
+			"  while (tcase--) solve();",
+			"}"
+		]
+	},
+	"For i loop": {
+		"prefix": "fori",
+		"description": "for loop: for(int i=0; i<n; ++i)",
+		"body": ["for (${1:type} ${2:i} = 0; ${2:i} < ${3:n}; ++${2:i}) {", "  $0", "}"]
+	}
+}
