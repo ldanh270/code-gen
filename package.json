@@ -1,8 +1,10 @@
 {
-	"name": "faster-javascript",
-	"displayName": "faster-javascript",
-	"description": "Faster coding in JavaScript, TypeScript, React, and C/C++ with custom VS Code snippets.",
-	"version": "0.0.1",
+	"name": "code-gen",
+	"displayName": "code-gen",
+	"description": "Faster coding in JavaScript, TypeScript, React, Bootstrap and C/C++ with custom VS Code snippets by ldanh270.",
+	"version": "1.0.0",
+	"publisher": "ldanh270",
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.103.0"
 	},
@@ -60,7 +62,5 @@
 				"path": "./snippets/bootstrap/init-bootstrap.code-snippets"
 			}
 		]
-	},
-	"publisher": "ldanh270",
-	"license": "MIT"
+	}
 }

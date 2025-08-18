@@ -1,5 +1,6 @@
 {
 	"Bootstrap Init": {
+		"scope": "css, scss",
 		"prefix": "@init",
 		"body": [
 			"html {",
