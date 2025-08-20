@@ -2,7 +2,7 @@
 	"React component function (no-style)": {
 		"prefix": "rfn",
 		"body": [
-			"const ${1:Component} = (${2:arg}: ${3:type}) => {",
+			"const ${1:Component} = () => {",
 			"  return (<div>$0</div>);",
 			"}",
 			"export default ${1:Component};"
@@ -13,8 +13,8 @@
 		"prefix": "sfn",
 		"body": [
 			"import styles from './${1:Component}.module.scss';",
-			"const ${1:Component} = (${2:arg}: ${3:type}): ${4:Type} => {",
-			"  return (<div className={styles['${1:Component}']}>${5}</div>);",
+			"const ${1:Component} = () => {",
+			"  return (<div className={styles['${1:Component}']}>$0</div>);",
 			"}",
 			"export default ${1:Component};"
 		],
