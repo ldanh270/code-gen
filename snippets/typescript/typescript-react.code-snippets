@@ -2,8 +2,8 @@
 	"React component function (no-style)": {
 		"prefix": "rfn",
 		"body": [
-			"const ${1:Component} = (${2:arg}: ${3:type}): ${4:Type} => {",
-			"  return (<div>${5}</div>);",
+			"const ${1:Component} = (${2:arg}: ${3:type}) => {",
+			"  return (<div>$0</div>);",
 			"}",
 			"export default ${1:Component};"
 		],

@@ -1,86 +1,39 @@
 # Code Generator — VS Code Extension
 
-Useful code snippets for JavaScript, TypeScript, React, Bootstrap, and Data Structures & Algorithms.
+Developer docs. Build, test, ship.
 
-## Features
+## 1. Requirements
 
--   **JavaScript/TypeScript**
+-   Node.js 18+
+-   VS Code 1.92+
+-   `vsce` via `npx`
 
-    -   Modern JS utilities
-    -   React components and hooks
-    -   TS types and interfaces
+## 2. Repo structure
 
--   **Bootstrap**
+```
+.
+├─ package.json
+├─ README.md
+├─ CHANGELOG.md
+├─ LICENSE
+├─ .vscodeignore
+└─ snippets/
+   ├─ js.json
+   ├─ ts.json
+   ├─ react.json
+   ├─ react-ts.json
+   ├─ c.json
+   └─ cpp.json
+```
 
-    -   Common components
-    -   Layout utilities
-    -   Init templates
-
--   **DSA**
-
-    -   C and C++ implementations
-    -   Core data structures and algorithms
-
-## Installation
-
-### From Marketplace
-
-1. Open VS Code.
-2. `Ctrl+P` / `Cmd+P` → `ext install code-gen`.
-
-### From a local `.vsix`
-
-See **Build & Install from VSIX** below.
-
-## Usage
-
-1. Open a supported file: `.js`, `.ts`, `.jsx`, `.tsx`, `.c`, `.cpp`.
-2. Start typing a snippet prefix.
-3. Pick from IntelliSense.
-
-## Available Snippets
-
-### JavaScript/TypeScript
-
--   React function components
--   Custom hooks
--   Utilities
--   TS types and interfaces
-
-### Bootstrap
-
--   Grid layouts
--   Components
--   Utilities
--   Responsive patterns
-
-### DSA
-
--   LinkedList, Stack, Queue, …
--   Sorting and searching
--   Trees
-
-## Build & Install from VSIX
-
-### Prerequisites
-
--   Node.js 18+ and npm
--   A valid `package.json` with:
-
-    -   `"name"`, `"displayName"`, `"version"`
-    -   `"publisher"` (any string you own; required even for local packaging)
-    -   `"engines": { "vscode": "^1.xx.0" }`
-    -   `"categories": ["Snippets"]`
-    -   `"contributes.snippets"` pointing to your snippet files
-
-Example:
+## 3. Minimal `package.json`
 
 ```json
 {
 	"name": "code-gen",
 	"displayName": "Code Generator",
 	"publisher": "your-publisher-id",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": { "vscode": "^1.92.0" },
 	"categories": ["Snippets"],
 	"contributes": {
@@ -92,11 +45,19 @@ Example:
 			{ "language": "c", "path": "./snippets/c.json" },
 			{ "language": "cpp", "path": "./snippets/cpp.json" }
 		]
+	},
+	"scripts": {
+		"dev": "code --extensionDevelopmentPath=$(pwd)",
+		"package": "npx @vscode/vsce package",
+		"package:pre": "npx @vscode/vsce package --pre-release",
+		"publish": "npx @vscode/vsce publish",
+		"publish:pre": "npx @vscode/vsce publish --pre-release",
+		"lint": "node ./scripts/validate-snippets.mjs"
 	}
 }
 ```
 
-Optional `.vscodeignore` to shrink the package:
+## 4. `.vscodeignore`
 
 ```
 **/.git/**
@@ -106,69 +67,111 @@ Optional `.vscodeignore` to shrink the package:
 **/*.test.*
 **/tests/**
 .vscode/
-.vscode/**
 .DS_Store
+scripts/
 ```
 
-### Package
+## 5. Snippet conventions
 
-Use `vsce` (official packager):
+-   Prefix: short and consistent (`rfc`, `rhook`, `bs-grid`, `dsa-ll`).
+-   Scope: bind to exact languages.
+-   Placeholders: `${1:name}`, `${2:type}`; choices when needed.
+-   Descriptions: concise. Avoid unused imports.
+
+Example:
+
+```json
+{
+	"React Function Component": {
+		"scope": "typescriptreact, javascriptreact",
+		"prefix": "rfc",
+		"body": [
+			"import React from 'react';",
+			"",
+			"type ${1:Props} = {",
+			"  ${2:// props}",
+			"};",
+			"",
+			"export default function ${3:Component}(${4:props}: ${1:Props}) {",
+			"  return (",
+			"    <div>${5}</div>",
+			"  );",
+			"}"
+		],
+		"description": "React function component (TS/JS)"
+	}
+}
+```
+
+## 6. Run in Extension Development Host
+
+-   Open folder in VS Code.
+-   Press `F5`.
+-   Create `.js/.ts/.tsx/.c/.cpp` file and test prefixes.
+
+## 7. Build a `.vsix`
 
 ```bash
-# One-off without global install
 npx @vscode/vsce package
-
-# or install globally
-npm i -g @vscode/vsce
-vsce package
-
-# optional pre-release
-vsce package --pre-release
+# pre-release
+npx @vscode/vsce package --pre-release
 ```
 
-This generates `code-gen-0.0.1.vsix` in the project root.
+Output: `code-gen-1.0.0.vsix`.
 
-### Install the VSIX
+## 8. Install the `.vsix`
 
 ```bash
-# Using VS Code CLI
-code --install-extension code-gen-0.0.1.vsix
-
-# Or via UI: Extensions panel → … menu → Install from VSIX…
+code --install-extension code-gen-1.0.0.vsix
 ```
 
-### Publish to Marketplace (optional)
+Or: Extensions panel → `…` → Install from VSIX.
+
+## 9. Publish to Marketplace (optional)
 
 ```bash
-# Create a publisher once
-npx @vscode/vsce create-publisher your-publisher-id
-
-# Acquire a Personal Access Token (Azure DevOps)
-# Then:
-npx @vscode/vsce login your-publisher-id
-npx @vscode/vsce publish
-# or pre-release
-npx @vscode/vsce publish --pre-release
+npx @vscode/vsce create-publisher your-publisher-id   # once
+npx @vscode/vsce login your-publisher-id              # Azure DevOps PAT
+npx @vscode/vsce publish                              # stable
+npx @vscode/vsce publish --pre-release                # pre
 ```
 
-## Contributing
+## 10. PR workflow
 
-1. Fork the repo.
-2. Create a branch: `git checkout -b feat/amazing-feature`.
-3. Commit: `git commit -m "feat: add amazing feature"`.
-4. Push: `git push origin feat/amazing-feature`.
-5. Open a Pull Request.
+1. Branch: `feat/<slug>` or `fix/<slug>`.
+2. Add snippet + description.
+3. `npm run lint`.
+4. Test with F5.
+5. Update `CHANGELOG.md`.
+6. Open PR with GIF or screenshot.
 
-## Release Notes
+## 11. Versioning
 
-### 0.0.1
+-   `MAJOR.MINOR.PATCH`
+-   New snippets → MINOR
+-   Fixes → PATCH
+-   Prefix changes → MAJOR
 
--   Initial snippets for JS, TS, React, Bootstrap, and DSA.
+## 12. Release notes
 
-## License
+### 1.0.0
 
-MIT. See [LICENSE](LICENSE).
+-   Graduation to stable.
+-   Documentation and packaging clarified.
+-   VSIX build and install steps added to README.
 
-## Author
+_(Add concrete Added/Changed/Removed/Breaking bullets here as applicable.)_
 
-Lê Đức Anh - ldanh270
+## 13. Troubleshooting
+
+-   Install fails → check `engines.vscode`.
+-   Snippet missing → verify `scope` and file extension.
+-   Large VSIX → tighten `.vscodeignore`.
+
+## 14. License
+
+MIT. See `LICENSE`.
+
+## 15. Author
+
+Le Duc Anh.
