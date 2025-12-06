@@ -1,8 +1,13 @@
 {
 	"Console log": {
 		"prefix": "csl",
-		"body": ["console.log('$1:', $1);$0"],
+		"body": ["console.log('$1');$0"],
 		"description": "console.log with label"
+	},
+	"Console error": {
+		"prefix": "csl",
+		"body": ["console.error('$1');$0"],
+		"description": "console.error with label"
 	},
 	"Console time": {
 		"prefix": "ctime",

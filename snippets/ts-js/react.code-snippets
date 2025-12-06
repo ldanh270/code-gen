@@ -1,11 +1,7 @@
 {
 	"React component function (no-style)": {
 		"prefix": "rfn",
-		"body": [
-			"export default function ${1:Component} () {",
-			"  return (<div>$0</div>);",
-			"}",
-		],
+		"body": ["export default function ${1:Component} () {", "  return (<div>$0</div>);", "}"],
 		"description": "React functional component (TS)"
 	},
 	"React component function (styled)": {
@@ -14,7 +10,7 @@
 			"import styles from './${1:Component}.module.scss';",
 			"export default function ${1:Component} () {",
 			"  return (<div className={styles['${1:Component}']}>$0</div>);",
-			"}",
+			"}"
 		],
 		"description": "React functional component (TS)"
 	},

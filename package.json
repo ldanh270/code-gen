@@ -15,27 +15,27 @@
 		"snippets": [
 			{
 				"language": "javascript",
-				"path": "./snippets/javascript/javascript.code-snippets"
+				"path": "./snippets/ts-js/ts-js.code-snippets"
 			},
 			{
 				"language": "javascriptreact",
-				"path": "./snippets/javascript/javascript.code-snippets"
+				"path": "./snippets/ts-js/ts-js.code-snippets"
 			},
 			{
 				"language": "javascriptreact",
-				"path": "./snippets/javascript/javascript-react.code-snippets"
+				"path": "./snippets/ts-js/react.code-snippets"
 			},
 			{
 				"language": "typescript",
-				"path": "./snippets/typescript/typescript.code-snippets"
+				"path": "./snippets/ts-js/ts-js.code-snippets"
 			},
 			{
 				"language": "typescriptreact",
-				"path": "./snippets/typescript/typescript.code-snippets"
+				"path": "./snippets/ts-js/ts-js.code-snippets"
 			},
 			{
 				"language": "typescriptreact",
-				"path": "./snippets/typescript/typescript-react.code-snippets"
+				"path": "./snippets/ts-js/react.code-snippets"
 			},
 			{
 				"language": "cpp",
@@ -44,22 +44,6 @@
 			{
 				"language": "c",
 				"path": "./snippets/dsa/c.code-snippets"
-			},
-			{
-				"language": "css",
-				"path": "./snippets/bootstrap/part-bootstrap.code-snippets"
-			},
-			{
-				"language": "scss",
-				"path": "./snippets/bootstrap/part-bootstrap.code-snippets"
-			},
-			{
-				"language": "css",
-				"path": "./snippets/bootstrap/init-bootstrap.code-snippets"
-			},
-			{
-				"language": "scss",
-				"path": "./snippets/bootstrap/init-bootstrap.code-snippets"
 			}
 		]
 	}
