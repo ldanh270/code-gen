@@ -40,6 +40,6 @@
 	"For i loop": {
 		"prefix": "fori",
 		"description": "for loop: for(int i=0; i<n; ++i)",
-		"body": ["for (${1:type} ${2:i} = 0; ${2:i} < ${3:n}; ++${2:i}) {", "  $0", "}"]
+		"body": ["for (${1: conditions}) {", "  $0", "}"]
 	}
 }
