@@ -16,13 +16,18 @@
 	},
 	"Function (Arrow function)": {
 		"prefix": "fn",
-		"body": ["const ${1:name} = (${2:args}) => {", "  $0", "};"],
+		"body": ["const ${1:name} = () => {", "  $0", "};"],
+		"description": "Arrow function"
+	},
+	"Default Function (Arrow function)": {
+		"prefix": "dfn",
+		"body": ["const ${1:name} = () => {", "  $0", "};", "export default ${1: name}"],
 		"description": "Arrow function"
 	},
 	"Async function (Arrow function)": {
 		"prefix": "afn",
 		"body": [
-			"const ${1:name} = async (${2:args}) => {",
+			"const ${1:name} = async () => {",
 			"  try {",
 			"    $0",
 			"  } catch (err) {",
